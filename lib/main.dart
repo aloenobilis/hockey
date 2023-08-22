@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:hockey/screens/home_screen.dart';
+import 'package:hockey/screens/team_detail_screen.dart';
 import 'package:hockey/blocs/team_provider.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class Hockey extends StatelessWidget {
         initialRoute: HomeScreen.id,
         routes: {
           HomeScreen.id: (context) => const HomeScreen(),
+          TeamDetailScreen.id: (context) => const TeamDetailScreen(),
         },
       ),
     );

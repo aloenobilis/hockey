@@ -3,8 +3,6 @@ import 'package:hockey/classes/response.dart';
 import 'package:hockey/models/team.dart';
 
 class ApiProvider {
-  // https://statsapi.web.nhl.com/api/v1/teams?teamId=1,2,,,,,,,,,,
-  // https://statsapi.web.nhl.com/api/v1/teams/2
   final dio = Dio();
 
   /// Convert a list of int to a string csv
@@ -46,5 +44,23 @@ class ApiProvider {
     }
 
     return ApiResponse(payload: null, errorMessage: "Could not retreive teams");
+  }
+
+  Future<ApiResponse> getTeamById(int teamId) async {
+    Team? team;
+
+    try {
+      final response =
+          await dio.get("https://statsapi.web.nhl.com/api/v1/teams/$teamId");
+
+      if (response.statusCode == 200) {
+        team = Team.fromJson(response.data['teams'][0]);
+        return ApiResponse(payload: team);
+      }
+    } catch (err) {
+      return ApiResponse(payload: null, errorMessage: "Could no retreive team");
+    }
+
+    return ApiResponse(payload: null, errorMessage: "No team returned");
   }
 }

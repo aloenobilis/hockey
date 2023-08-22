@@ -8,4 +8,9 @@ class TeamBloc {
     ApiResponse response = await api.getTeams(teamIds);
     return BlocResponse.fromApiResponse(response);
   }
+
+  Future<BlocResponse> getTeamById(int teamId) async {
+    ApiResponse response = await api.getTeamById(teamId);
+    return BlocResponse.fromApiResponse(response);
+  }
 }

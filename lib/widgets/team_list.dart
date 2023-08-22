@@ -23,7 +23,7 @@ Widget teamList(List<Team> teams, ScrollController controller, bool isLoading,
         return loader(isLoading);
       } else {
         try {
-          return teamItem(teams[index]);
+          return teamItem(teams[index], context);
         } catch (err) {
           // errors at end of range indicating no more teams were loaded
           // for the given team id

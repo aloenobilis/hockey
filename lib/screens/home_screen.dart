@@ -4,7 +4,9 @@ import 'package:hockey/blocs/team_bloc.dart';
 import 'package:hockey/blocs/team_provider.dart';
 import 'package:hockey/classes/response.dart';
 import 'package:hockey/models/team.dart';
+import 'package:hockey/widgets/team_error.dart';
 import 'package:hockey/widgets/team_list.dart';
+import 'package:hockey/widgets/title.dart';
 
 class HomeScreen extends StatefulWidget {
   static const id = "home_screen";
@@ -63,7 +65,7 @@ class HomeScreenState extends State<HomeScreen> {
         isLoading = true;
       });
 
-      ApiResponse response = await bloc.getTeams(teamIds);
+      BlocResponse response = await bloc.getTeams(teamIds);
       if (response.payload != null && response.errorMessage == null) {
         List<int> newTeamIds = _range(teamIds.last + 1, teamIds.last + 10);
 
@@ -73,7 +75,6 @@ class HomeScreenState extends State<HomeScreen> {
           teamIds = newTeamIds;
         });
       } else {
-        // TODO: handle showing the errorMessage (toast)
         setState(() {
           isLoading = false;
           errorMessage = response.errorMessage;
@@ -86,10 +87,12 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("NHL Teams"),
+        title: title('Teams'),
       ),
       body: Container(
-        child: teamList(teams, controller, isLoading, errorMessage),
+        child: errorMessage == null
+            ? teamList(teams, controller, isLoading, errorMessage)
+            : teamError(errorMessage),
       ),
     );
   }

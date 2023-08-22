@@ -7,9 +7,12 @@ class Team {
   Map<String, dynamic>? division;
   Map<String, dynamic>? conference;
   Map<String, dynamic>? franchise;
+  Map<String, dynamic>? venue;
   String? shortName;
   int? franchiseId;
   bool? active;
+  String? officialSiteUrl;
+  String? firstYearOfPlay;
 
   // API
   Team.fromJson(Map<String, dynamic> parsedJson)
@@ -21,7 +24,10 @@ class Team {
         division = parsedJson['division'],
         conference = parsedJson['conference'],
         franchise = parsedJson['franchise'],
+        venue = parsedJson['venue'],
         shortName = parsedJson['shortName'],
         franchiseId = parsedJson['franchiseId'],
-        active = parsedJson['active'];
+        active = parsedJson['active'],
+        officialSiteUrl = parsedJson['officialSiteUrl'],
+        firstYearOfPlay = parsedJson['firstYearOfPlay'];
 }
