@@ -15,6 +15,7 @@ ResponsiveGridCol teamWebsite(Team team) {
                   decoration: TextDecoration.underline,
                 ),
               ),
+              // ignore: deprecated_member_use
               onTap: () => launch(team.officialSiteUrl!))
           : const Text(""),
     ),

@@ -8,9 +8,9 @@ ResponsiveGridCol teamName(Team team) {
       md: 12,
       lg: 12,
       child: Center(
-        child: team!.name != null
+        child: team.name != null
             ? Text(
-                team!.name!,
+                team.name!,
                 style: const TextStyle(
                     fontSize: 32,
                     color: Colors.teal,

@@ -4,7 +4,6 @@ import 'package:hockey/blocs/team_bloc.dart';
 import 'package:hockey/blocs/team_provider.dart';
 import 'package:hockey/classes/response.dart';
 import 'package:hockey/models/team.dart';
-import 'package:hockey/widgets/team_error.dart';
 import 'package:hockey/widgets/team_list.dart';
 import 'package:hockey/widgets/title.dart';
 
@@ -90,10 +89,7 @@ class HomeScreenState extends State<HomeScreen> {
         title: title('Teams'),
       ),
       body: Container(
-        child: errorMessage == null
-            ? teamList(teams, controller, isLoading, errorMessage)
-            : teamError(errorMessage),
-      ),
+          child: teamList(teams, controller, isLoading, errorMessage)),
     );
   }
 }

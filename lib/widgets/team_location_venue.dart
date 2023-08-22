@@ -10,7 +10,7 @@ ResponsiveGridCol teamLocationVenue(Team team) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          team!.locationName != null
+          team.locationName != null
               ? Text.rich(
                   TextSpan(
                     children: [
@@ -20,7 +20,7 @@ ResponsiveGridCol teamLocationVenue(Team team) {
                   ),
                 )
               : const Text(""),
-          team!.venue != null
+          team.venue != null
               ? Text.rich(
                   TextSpan(
                     children: [
