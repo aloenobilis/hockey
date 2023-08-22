@@ -36,10 +36,10 @@
 ```
 
 
-TODO: Team Model <br/>
-TODO: Api Prvoider <br/>
-TODO: Team Bloc <br/>
-TODO: Home Screen lists teams with lazy loading to insert more teams into the list <br/>
+DONE: Team Model <br/>
+DONE: Api Prvoider <br/>
+DONE: Team Bloc <br/>
+DONE: Home Screen lists teams with lazy loading to insert more teams into the list <br/>
 TODO: Team detail screen  <br/>
 TODO: error handling <br/>
 TODO: tests
@@ -48,3 +48,14 @@ TODO: tests
 ### inception
 DONT: ```flutter create hockey```
 
+### 1.0 - team list screen, bloc, api provider
+DONE: created HomeScreen which lists the teams <br/>
+DONE: created the ApiProvider which is responsible for fetching data from the nhl endpoint. <br/>
+DONE: created the TeamBloc which seperates concerns between getting data from a data provider into local screen state. <br/>
+DONE: created Team model <br/>
+DONE: created widgets teamList, teamItem, loader <br/>
+DONE: added depenedencies
+```yaml
+  responsive_grid: ^2.4.2         # <-- bootstrap like columns and rows
+  dio: ^5.3.2                     # <-- http client requests
+```
